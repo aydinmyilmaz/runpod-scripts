@@ -1,31 +1,42 @@
 #!/bin/bash
 # ============================================================
-# 🚀 Start FastAPI Server (using Gradio app's working code)
+# 🚀 Update Chatterbox-Multilingual-TTS Repo and Start FastAPI
 # ============================================================
-# This uses api_server.py which uses the same code as the working Gradio app
-# Note: Make sure Chatterbox-Multilingual-TTS repo is up to date first!
+# This script updates the Chatterbox-Multilingual-TTS repo and starts the FastAPI server
 
-cd /workspace/Chatterbox-Multilingual-TTS
+set -e
 
-# Check if repo exists
-if [ ! -d ".git" ]; then
-    echo "❌ Chatterbox-Multilingual-TTS repository not found!"
-    echo "   Please run: bash update_and_start_fastapi.sh"
-    exit 1
+echo "🔄 Updating Chatterbox-Multilingual-TTS repository..."
+
+cd /workspace
+
+# Clone repo if it doesn't exist
+if [ ! -d "Chatterbox-Multilingual-TTS" ]; then
+    echo "📦 Cloning repository..."
+    git clone https://github.com/aydinmyilmaz/Chatterbox-Multilingual-TTS.git
 fi
+
+cd Chatterbox-Multilingual-TTS
+
+# Pull latest changes
+echo "⬇️ Pulling latest changes..."
+git pull origin main
 
 # Check if venv exists
 if [ ! -d "venv" ]; then
-    echo "❌ Virtual environment not found!"
-    echo "   Please run: bash deploy_gradio.sh first"
+    echo "⚠️ Virtual environment not found. Please run deploy_gradio.sh first to set up the environment."
     exit 1
 fi
 
-# Kill existing session if any
+# Activate venv
+source venv/bin/activate
+
+# Kill existing FastAPI session if any
 tmux kill-session -t fastapi_server 2>/dev/null || true
 sleep 2
 
 # Start FastAPI server in tmux
+echo "🚀 Starting FastAPI server..."
 tmux new-session -d -s fastapi_server bash -c "
     source venv/bin/activate
     export HF_HUB_ENABLE_HF_TRANSFER=1
@@ -44,5 +55,6 @@ if tmux has-session -t fastapi_server 2>/dev/null; then
     echo "🌐 API will be available at: http://your-pod-id.runpod.net:8004"
 else
     echo "❌ Failed to start. Check: tail -f /workspace/fastapi.log"
+    exit 1
 fi
 
