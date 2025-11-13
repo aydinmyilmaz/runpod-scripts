@@ -111,5 +111,7 @@ tmux has-session -t chatterbox_api && echo "Running" || echo "Stopped"
 
 ## 📚 More Information
 
-- Main repository: https://github.com/aydinmyilmaz/Chatterbox-Multilingual-TTS
-- API documentation: http://your-pod-id.runpod.net:8004/docs
+- **Main repository**: https://github.com/aydinmyilmaz/Chatterbox-Multilingual-TTS
+- **API documentation**: http://your-pod-id.runpod.net:8004/docs
+- **[Official Multilingual Documentation](https://chatterboxtts.com/docs/multilingual)** - Complete multilingual TTS guide with API reference, examples, and best practices
+- **[Hugging Face Space Demo](https://huggingface.co/spaces/ResembleAI/Chatterbox-Multilingual-TTS)** - Test the model interactively in your browser
