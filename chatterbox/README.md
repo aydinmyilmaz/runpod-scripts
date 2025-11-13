@@ -1,19 +1,37 @@
-# Chatterbox TTS API Scripts
+# Chatterbox TTS Scripts
 
-Scripts for deploying and managing Chatterbox Multilingual TTS FastAPI server.
+Scripts for deploying and managing Chatterbox Multilingual TTS (FastAPI and Gradio).
 
 ## Scripts
+
+### FastAPI Server (Port 8004)
 
 - **`setup.sh`** - One-shot setup script. Run this ONCE when starting a new RunPod instance.
 - **`start_api.sh`** - Start the FastAPI server (assumes setup is done)
 - **`restart_api.sh`** - Restart the server after updates
 
+### Gradio App (Port 7860)
+
+- **`deploy_gradio.sh`** - Full setup for Gradio app
+- **`start_gradio.sh`** - Start Gradio app (foreground)
+- **`start_gradio_tmux.sh`** - Start Gradio app (background in tmux)
+
 ## Quick Start
+
+### FastAPI Server
 
 ```bash
 cd /workspace/runpod-scripts/chatterbox
 bash setup.sh
 bash start_api.sh
+```
+
+### Gradio App
+
+```bash
+cd /workspace/runpod-scripts/chatterbox
+bash deploy_gradio.sh
+bash start_gradio_tmux.sh
 ```
 
 ## API Endpoints

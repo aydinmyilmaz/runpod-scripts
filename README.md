@@ -28,8 +28,9 @@ bash start_xtts.sh
 
 Scripts are organized into two folders:
 
-### 📁 `chatterbox/` - Chatterbox TTS API (Port 8004)
+### 📁 `chatterbox/` - Chatterbox TTS (FastAPI & Gradio)
 
+**FastAPI Server (Port 8004):**
 - **`setup.sh`** - One-shot setup script. Run this ONCE when starting a new RunPod instance.
   - Clones the repository
   - Installs UV, Rust, Python dependencies
@@ -44,6 +45,11 @@ Scripts are organized into two folders:
   - Pulls latest changes from GitHub
   - Restarts the server
 
+**Gradio App (Port 7860):**
+- **`deploy_gradio.sh`** - Full setup for Gradio app
+- **`start_gradio.sh`** - Start Gradio app (foreground)
+- **`start_gradio_tmux.sh`** - Start Gradio app (background in tmux)
+
 ### 📁 `xtts/` - Coqui TTS (XTTS v2) API (Port 8005)
 
 - **`setup_xtts.sh`** - Setup Coqui TTS (XTTS v2) API
@@ -54,12 +60,6 @@ Scripts are organized into two folders:
 - **`start_xtts.sh`** - Start Coqui TTS API server
   - Starts server on port 8005
   - Can coexist with Chatterbox TTS API
-
-### 📁 Root Level - Optional Scripts
-
-- **`start_gradio.sh`** - Start Gradio app (foreground)
-- **`start_gradio_tmux.sh`** - Start Gradio app (background in tmux)
-- **`deploy_gradio.sh`** - Full setup for Gradio app (if you want Gradio instead of FastAPI)
 
 ## 🔧 Usage Examples
 
