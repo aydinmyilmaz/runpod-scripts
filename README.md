@@ -40,6 +40,12 @@ That's it! The API will be running on port 8004.
 - **`start_gradio_tmux.sh`** - Start Gradio app (background in tmux)
 - **`deploy_gradio.sh`** - Full setup for Gradio app (if you want Gradio instead of FastAPI)
 
+### Coqui TTS (XTTS v2) Scripts
+
+- **`setup_xtts.sh`** - Setup Coqui TTS (XTTS v2) API - creates separate venv and installs dependencies
+- **`start_xtts.sh`** - Start Coqui TTS API server on port 8005
+- **Note**: XTTS API runs on port 8005 and can coexist with Chatterbox TTS API (port 8004)
+
 ## 🔧 Usage Examples
 
 ### First Time Setup
