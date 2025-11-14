@@ -24,6 +24,9 @@ if [ ! -d "$PROJECT_DIR/.git" ]; then
     git clone https://github.com/aydinmyilmaz/Chatterbox-Multilingual-TTS.git
 else
     echo "ℹ️  Repository already exists"
+    echo "🔄 Updating repository to latest version..."
+    cd "$PROJECT_DIR"
+    git pull origin main || echo "⚠️  Could not pull latest changes, continuing with existing code..."
 fi
 
 cd "$PROJECT_DIR"
