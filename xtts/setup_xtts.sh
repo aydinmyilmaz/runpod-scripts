@@ -75,11 +75,11 @@ uv pip install -r requirements_xtts.txt --quiet
 
 echo "✅ Dependencies installed"
 
-# Create reference audio directory
+# Create reference audio directory (same as Chatterbox TTS for compatibility)
 echo ""
-echo "📁 Creating reference_audio_xtts directory..."
-mkdir -p reference_audio_xtts
-touch reference_audio_xtts/.gitkeep
+echo "📁 Creating reference_audio directory..."
+mkdir -p reference_audio
+touch reference_audio/.gitkeep
 echo "✅ Reference audio directory created"
 
 # Verification
